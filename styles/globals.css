@@ -9,6 +9,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: Oswald, sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
 a {
@@ -18,6 +20,12 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 70vh;
 }
 
 /* @media (prefers-color-scheme: dark) {

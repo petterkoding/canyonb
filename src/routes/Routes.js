@@ -31,12 +31,12 @@ export const siteLinks = [
     },
     {
         "name": "outlet",
-        "routes": ["race", "aero", "endurance", "triathlon"],
+        "routes": [ "handle etter verden","kjøp sykler etter pris", "kjøp sykler etter størrelse", "flere valg"],
         "isOpen": false,
     },
     {
         "name": "service",
-        "routes": ["race", "aero", "endurance", "triathlon"],
+        "routes": ["velg", "betal", "frakt og levering", "reparer og vedlikehold"],
         "isOpen": false,
     },
 
