@@ -3,6 +3,8 @@ import React from 'react'
 
 const WithLabel = (Component) => {
     
+    WithLabel.displayName = "WithLabel"
+    
     return ({children, ...rest}) => (
         <div>
             <Component {...rest}/>
@@ -11,6 +13,5 @@ const WithLabel = (Component) => {
     )
 }
 
-WithLabel.displayName = "WithLabel"
 
 export default WithLabel
