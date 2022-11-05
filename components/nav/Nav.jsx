@@ -5,6 +5,7 @@ import { siteLinks } from '../../src/routes/Routes'
 import { motion } from 'framer-motion'
 import VariableHeading from '../typography/VariableHeading'
 import WithLabel from '../typography/WithLabel'
+import Image from 'next/image'
 
 const HeadingWithLabel = WithLabel(VariableHeading)
 
@@ -158,10 +159,13 @@ const Nav = () => {
 
                   <motion.div
                     initial={{opacity: 0, x: 10}}
-                    whileInView={{opacity: 1.2, x: 0, transition: { duration: 0.8, ease: "easeInOut"}}}
+                    whileInView={{opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeInOut", delay: 0.2}}}
                     viewport={{once: true}}
+                    className="h-full"
                     >
-                    <img src={"/spectral.jpg"} alt="canyon spectral bike" className="bg-black h-full"/>
+                      
+                    <Image src={"/spectral.jpg"} width={622} height={350} alt="canyon spectral bike" className="bg-black h-full"/>
+                      
                   </motion.div>
                 </div>
 

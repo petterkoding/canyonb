@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function withLabel (Component){
+export default function WithLabel (Component){
+
+    WithLabel.displayName = "with label component"
+
     return ({children, ...rest}) => (
         <div>
             <Component {...rest}/>
