@@ -1,6 +1,5 @@
 import Head from 'next/head'
 // import ScreenContainer from '@/ui/ScreenContainer'
-import VariableHeading from '../components/typography/VariableHeading'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/solid'
 
@@ -19,7 +18,7 @@ export default function Home() {
         {/* hero section text */}
         <div className="absolute top-[50%] left-32 translate-y-[-50%] z-[999]">
           <span className="text-md text-white mb-2 block">Klær</span>
-          <VariableHeading title="hold deg beskyttet mot været" as="h1" styles="font-black text-7xl uppercase text-white max-w-[700px]"/>
+          <h1 className="font-black text-7xl uppercase text-white max-w-[700px]">hold deg beskyttet mot været</h1>
 
           <p className="text-white max-w-[500px] text-xl py-8 leading-8">Beskyttelse mot fukt og kulde med innebygd pusteevne slik at du ikke overopphetes.
             Våre <span className="uppercase">defend+</span> vanntette regnjakker er for ryttere som søker det beste innen ytelse.
