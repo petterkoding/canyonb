@@ -1,5 +1,6 @@
 import React from 'react'
 
+// eslint-disable react/display-name
 export default function WithLabel (Component){
 
     WithLabel.displayName = "WithLabel"
