@@ -1,10 +1,8 @@
 import React from 'react'
 
-// eslint-disable react/display-name
-export default function WithLabel (Component){
 
-    WithLabel.displayName = "WithLabel"
-
+const WithLabel = (Component) => {
+    
     return ({children, ...rest}) => (
         <div>
             <Component {...rest}/>
@@ -12,3 +10,7 @@ export default function WithLabel (Component){
         </div>
     )
 }
+
+WithLabel.displayName = "WithLabel"
+
+export default WithLabel
