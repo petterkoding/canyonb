@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function WithLabel (Component){
 
-    WithLabel.displayName = "with label component"
+    WithLabel.displayName = "WithLabel"
 
     return ({children, ...rest}) => (
         <div>
