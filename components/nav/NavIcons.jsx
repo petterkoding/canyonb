@@ -9,10 +9,10 @@ import Image from "next/image";
 const NavIcons = () => {
   return (
     <div className="flex items-center space-x-4">
-      <MagnifyingGlassIcon className="w-6 h-6" />
+      <MagnifyingGlassIcon className="hidden lg:block w-6 h-6" />
       <UserCircleIcon className="w-6 h-6" />
       <ShoppingBagIcon className="w-6 h-6 text-gray-500" />
-      <div className="flex items-center">
+      <div className="hidden items-center lg:flex">
         <span className="uppercase">no</span>
         <Image
           src={"/noflag.png"}

@@ -4,12 +4,14 @@ import NavIcons from "./NavIcons";
 import { siteLinks } from "../../src/routes/Routes";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
 
 const Nav = () => {
   const [links, setLinks] = useState(siteLinks);
   const [subMenu, setSubMenu] = useState([]);
   const [show, setShow] = useState(false);
   const [hover, setHover] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
 
   function handleOpenState(e) {
     const target = e.target.innerText.toLowerCase();
@@ -28,8 +30,15 @@ const Nav = () => {
     }, 50);
   }
 
-  function showSubSubMenu() {
-    setShow(true);
+  function showSubSubMenu(e) {
+    const target = e.target.innerText.toLowerCase();
+    siteLinks.map((link) =>
+      link.routes.map((route) => {
+        if (route === target) {
+          setShow(true);
+        }
+      })
+    );
   }
 
   function hideSubSubMenu(e) {
@@ -57,21 +66,23 @@ const Nav = () => {
     <header className="bg-[#F4F4F4] h-auto">
       <nav
         onMouseLeave={hideSubSubMenu}
-        className="flex flex-col justify-between h-full z-[99999] relative px-6 2xl:px-0"
+        className="flex flex-col justify-between h-full z-[99999] relative px-2 lg:px-6 2xl:px-0"
       >
-        <div className="w-full h-[1px] absolute top-1/2 left-0 bg-gray-200 rounded-full" />
+        <div className="hidden lg:block w-full h-[1px] absolute top-1/2 left-0 bg-gray-200 rounded-full" />
 
         <ScreenContainer>
           <div
             onMouseEnter={handleRemoveOpenTab}
             className="flex flex-row items-center justify-between h-full relative pb-2 py-3"
           >
-            <div className="font-bold h-8 pt-1 text-4xl uppercase skew-x-[35deg] tracking-widest overflow-y-hidden overflow-hidden">
+            <MobileMenu open={navOpen} setOpen={setNavOpen} />
+
+            <div className="translate-x-[25%] font-bold h-8 pt-1 text-4xl uppercase skew-x-[35deg] tracking-widest overflow-y-hidden overflow-hidden">
               canyon
             </div>
 
             <div className="flex items-center space-x-8">
-              <ul className="flex text-[13px] text-gray-600 space-x-8 tracking-wider cursor-pointer">
+              <ul className="hidden lg:flex text-[13px] text-gray-600 space-x-8 tracking-wider cursor-pointer ">
                 <li className="hover:text-gray-500">Kommer snart</li>
                 <li className="hover:text-gray-500">Servicesenter</li>
                 <li className="hover:text-gray-500">Sykler på lager</li>
@@ -80,12 +91,11 @@ const Nav = () => {
                   Jobb hos Canyon
                 </li>
               </ul>
-
               <NavIcons />
             </div>
           </div>
 
-          <div className="h-full" onMouseLeave={handleHideMenu}>
+          <div className="hidden lg:block h-full" onMouseLeave={handleHideMenu}>
             <ul
               onMouseEnter={hideSubSubMenu}
               className="flex justify-center uppercase text-sm text-gray-900 h-full cursor-pointer"
@@ -96,7 +106,7 @@ const Nav = () => {
                   onMouseEnter={handleOpenState}
                   className={`${
                     link.isOpen ? "bg-white" : ""
-                  } py-4 px-8 hover:text-orange-600 transition-all duration-500 ease-in-out whitespace-nowrap`}
+                  } py-4 px-6 lg:px-8 hover:text-orange-600 transition-all duration-500 ease-in-out whitespace-nowrap`}
                 >
                   {link.name}
                 </li>
@@ -109,8 +119,8 @@ const Nav = () => {
                   <span
                     onMouseOver={showSubSubMenu}
                     key={index}
-                    className="whitespace-nowrap py-3 px-8 hover:text-orange-600 relative after:absolute after:rounded-full after:h-[2px] after:w-full
-                     after:bg-black after:left-0 after:bottom-0 after:scale-x-0 hover:after:scale-x-100 transition-all after:transition after:duration-500 ease-in-out"
+                    className={`whitespace-nowrap py-3 px-8 hover:text-orange-600 relative after:absolute after:rounded-full after:h-[2px] after:w-full
+                     after:bg-black after:left-0 after:bottom-0 after:scale-x-0 hover:after:scale-x-100 transition-all after:transition after:duration-500 ease-in-out`}
                   >
                     {link}
                   </span>
@@ -164,6 +174,7 @@ const Nav = () => {
                     className="h-full"
                   >
                     <Image
+                      priority
                       src={"/spectral.jpg"}
                       width={622}
                       height={350}
