@@ -16,7 +16,7 @@ export default function Home() {
       <div className="relative w-screen h-[90vh]">
 
         {/* hero section text */}
-        <div className="absolute top-[50%] left-[50%] lg:left-32 translate-x-[-50%] lg:translate-x-0 translate-y-[-50%] z-[999]">
+        <div className="absolute top-[35%] lg:top-[50%] left-[50%] lg:left-32 translate-x-[-50%] lg:translate-x-0 translate-y-[-50%] z-[999]">
           <span className="text-md text-white mb-2 block">Klær</span>
           <h1 className="font-black text-7xl uppercase text-white max-w-[700px]">hold deg beskyttet mot været</h1>
 
@@ -41,7 +41,7 @@ export default function Home() {
 
 
         <ChevronDownIcon className="w-10 h-10 text-white absolute left-[50%] bottom-4 translate-x-[-50%] z-[999]"/>
-        <div className="absolute right-24 bottom-8 z-[999] translate-x bg-stone-800 p-4 rounded-full">
+        <div className="absolute right-10 lg:right-24 bottom-8 z-[999] translate-x bg-stone-800 p-4 rounded-full">
           <ChatBubbleBottomCenterTextIcon className="w-7 h-7 text-white"/>
         </div>
       </div>
